@@ -18,14 +18,19 @@ public class MutableDataScanner {
     public var data: NSMutableData
     public var delimiter: NSData?
     
-    public init(data: NSMutableData) {
+    public init(data: NSMutableData = NSMutableData()) {
         self.data = data
         self.delimiter = nil
     }
     
-    public init(data: NSMutableData, delimiter: NSData) {
+    public init(data: NSMutableData = NSMutableData(), delimiter: NSData) {
         self.data = data
         self.delimiter = delimiter
+    }
+    
+    public init(data: NSMutableData = NSMutableData(), delimiter: String) {
+        self.data = data
+        self.delimiter = delimiter.dataUsingEncoding(NSUTF8StringEncoding)!
     }
     
     public func appendData(data: NSData) {

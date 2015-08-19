@@ -24,7 +24,7 @@ class MutableDataScannerTests: XCTestCase {
     func testReadLength() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let scanner = MutableDataScanner(data: NSMutableData())
+        let scanner = MutableDataScanner()
         let data = "12345\n12345\r\n12345\n12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
         scanner.appendData(data)
         assert(NSString(data: scanner.read(11)!, encoding: NSUTF8StringEncoding)! == "12345\n12345", "read length")
@@ -36,7 +36,7 @@ class MutableDataScannerTests: XCTestCase {
     func testReadOffsetLength() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let scanner = MutableDataScanner(data: NSMutableData())
+        let scanner = MutableDataScanner()
         let data = "12345\n12345\r\n12345\n12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
         scanner.appendData(data)
         assert(NSString(data: scanner.read(3, 11)!, encoding: NSUTF8StringEncoding)! == "45\n12345\r\n1", "read offset length")
@@ -48,7 +48,7 @@ class MutableDataScannerTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        let scanner = MutableDataScanner(data: NSMutableData())
+        let scanner = MutableDataScanner()
         let data = "12345\n12345\r\n12345\n12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
         var count = 0
         scanner.appendData(data)
@@ -64,7 +64,7 @@ class MutableDataScannerTests: XCTestCase {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
-            let scanner = MutableDataScanner(data: NSMutableData())
+            let scanner = MutableDataScanner()
             let data = "12345\n12345\r\n12345\r12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
             for _ in 1...10000 {
                 scanner.appendData(data)
@@ -78,7 +78,7 @@ class MutableDataScannerTests: XCTestCase {
         // This is an example of a performance test case.
         self.measureBlock {
             // Put the code you want to measure the time of here.
-            let scanner = MutableDataScanner(data: NSMutableData(), delimiter: "\n".dataUsingEncoding(NSUTF8StringEncoding)!)
+            let scanner = MutableDataScanner(delimiter: "\n")
             let data = "12345\n12345\r\n12345\r12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
             for _ in 1...10000 {
                 scanner.appendData(data)
@@ -88,4 +88,25 @@ class MutableDataScannerTests: XCTestCase {
         }
     }
     
+    func testPerformanceSplitReader() {
+        // This is an example of a performance test case.
+        let data = "12345\n12345\r\n12345\r12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
+        let buffer = NSMutableData()
+        self.measureBlock {
+            // Put the code you want to measure the time of here.
+            for _ in 1...10000 {
+                buffer.appendData(data)
+                if let string = NSString(data: buffer, encoding: NSUTF8StringEncoding) {
+                    var array = string.componentsSeparatedByString("\n")
+                    if let last = array.popLast()?.dataUsingEncoding(NSUTF8StringEncoding)! {
+                        buffer.setData(last)
+                    } else {
+                        buffer.setData(NSData())
+                    }
+                    for _ in array {
+                    }
+                }
+            }
+        }
+    }
 }
