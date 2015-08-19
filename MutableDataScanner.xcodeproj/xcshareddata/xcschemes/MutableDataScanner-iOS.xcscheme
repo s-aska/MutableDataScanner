@@ -22,15 +22,15 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AF430571B85166E00493F83"
-               BuildableName = "MutableDataScanner-MacTests.xctest"
-               BlueprintName = "MutableDataScanner-MacTests"
+               BlueprintIdentifier = "6AF430361B85156D00493F83"
+               BuildableName = "MutableDataScanner-iOSTests.xctest"
+               BlueprintName = "MutableDataScanner-iOSTests"
                ReferencedContainer = "container:MutableDataScanner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
