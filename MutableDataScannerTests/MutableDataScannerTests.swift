@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MutableDataScanner
+import MutableDataScanner
 
 class MutableDataScannerTests: XCTestCase {
     
