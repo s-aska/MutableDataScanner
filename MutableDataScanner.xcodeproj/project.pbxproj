@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38DFD7FD1B86DF900073C8CD /* MutableDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF430301B85156D00493F83 /* MutableDataScanner.h */; };
-		38DFD7FE1B86DF910073C8CD /* MutableDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF430301B85156D00493F83 /* MutableDataScanner.h */; };
+		38DFD7FD1B86DF900073C8CD /* MutableDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF430301B85156D00493F83 /* MutableDataScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38DFD7FE1B86DF910073C8CD /* MutableDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AF430301B85156D00493F83 /* MutableDataScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AF430381B85156D00493F83 /* MutableDataScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF4302D1B85156D00493F83 /* MutableDataScanner.framework */; };
 		6AF4303D1B85156D00493F83 /* MutableDataScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF4303C1B85156D00493F83 /* MutableDataScannerTests.swift */; };
 		6AF430481B85158000493F83 /* MutableDataScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF430471B85158000493F83 /* MutableDataScanner.swift */; };
