@@ -27,10 +27,10 @@ class MutableDataScannerTests: XCTestCase {
         let scanner = MutableDataScanner()
         let data = "12345\n12345\r\n12345\n12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
         scanner.appendData(data)
-        assert(NSString(data: scanner.read(11)!, encoding: NSUTF8StringEncoding)! == "12345\n12345", "read length")
-        assert(NSString(data: scanner.read(11)!, encoding: NSUTF8StringEncoding)! == "\r\n12345\n123", "read length")
-        scanner.read(20)
-        assert(scanner.read(1) == nil)
+        assert(NSString(data: scanner.read(length: 11)!, encoding: NSUTF8StringEncoding)! == "12345\n12345", "read length")
+        assert(NSString(data: scanner.read(length: 11)!, encoding: NSUTF8StringEncoding)! == "\r\n12345\n123", "read length")
+        scanner.read(length: 20)
+        assert(scanner.read(length: 1) == nil)
     }
     
     func testReadOffsetLength() {
@@ -39,10 +39,10 @@ class MutableDataScannerTests: XCTestCase {
         let scanner = MutableDataScanner()
         let data = "12345\n12345\r\n12345\n12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
         scanner.appendData(data)
-        assert(NSString(data: scanner.read(3, 11)!, encoding: NSUTF8StringEncoding)! == "45\n12345\r\n1", "read offset length")
-        assert(NSString(data: scanner.read(3, 11)!, encoding: NSUTF8StringEncoding)! == "5\n12345\n123", "read offset length")
-        scanner.read(20)
-        assert(scanner.read(1) == nil)
+        assert(NSString(data: scanner.read(offset: 3, length: 11)!, encoding: NSUTF8StringEncoding)! == "45\n12345\r\n1", "read offset length")
+        assert(NSString(data: scanner.read(offset: 3, length: 11)!, encoding: NSUTF8StringEncoding)! == "5\n12345\n123", "read offset length")
+        scanner.read(length: 20)
+        assert(scanner.read(length: 1) == nil)
     }
     
     func testExample() {
@@ -82,7 +82,7 @@ class MutableDataScannerTests: XCTestCase {
             let data = "12345\n12345\r\n12345\r12345\n12345\r\n12345".dataUsingEncoding(NSUTF8StringEncoding)!
             for _ in 1...10000 {
                 scanner.appendData(data)
-                while let _ = scanner.nextLine() {
+                while let _ = scanner.next() {
                 }
             }
         }

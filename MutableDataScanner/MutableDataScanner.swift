@@ -37,7 +37,7 @@ public class MutableDataScanner {
         self.data.appendData(data)
     }
     
-    public func read(offset: Int, var _ length: Int) -> NSData? {
+    public func read(offset offset: Int, var length: Int) -> NSData? {
         if offset > data.length {
             return nil
         }
@@ -49,7 +49,7 @@ public class MutableDataScanner {
         return chunk
     }
     
-    public func read(var length: Int) -> NSData? {
+    public func read(var length length: Int) -> NSData? {
         if data.length == 0 {
             return nil
         }
@@ -61,19 +61,41 @@ public class MutableDataScanner {
         return line
     }
     
+    public func hasNext() -> Bool {
+        guard let delimiter = delimiter else {
+            fatalError("next() need delimiter.")
+        }
+        let range = data.rangeOfData(delimiter, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
+        return range.location != NSNotFound
+    }
+    
+    public func next() -> NSData? {
+        guard let delimiter = delimiter else {
+            fatalError("next() need delimiter.")
+        }
+        let range = data.rangeOfData(delimiter, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
+        if range.location != NSNotFound {
+            let line = data.subdataWithRange(NSMakeRange(0, range.location))
+            data.replaceBytesInRange(NSMakeRange(0, range.location + range.length), withBytes: nil, length: 0)
+            return line
+        } else {
+            return nil
+        }
+    }
+    
     public func hasNextLine() -> Bool {
-        let range = data.rangeOfData(delimiter ?? Static.LF, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
+        let range = data.rangeOfData(Static.LF, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
         return range.location != NSNotFound
     }
     
     public func nextLine() -> NSData? {
-        let range = data.rangeOfData(delimiter ?? Static.LF, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
+        let range = data.rangeOfData(Static.LF, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
         if range.location != NSNotFound {
             let line: NSData
-            if delimiter != nil || data.subdataWithRange(NSMakeRange(range.location - 1, 1)) != Static.CR {
-                line = data.subdataWithRange(NSMakeRange(0, range.location))
-            } else {
+            if data.subdataWithRange(NSMakeRange(range.location - 1, 1)) == Static.CR {
                 line = data.subdataWithRange(NSMakeRange(0, range.location - 1))
+            } else {
+                line = data.subdataWithRange(NSMakeRange(0, range.location))
             }
             data.replaceBytesInRange(NSMakeRange(0, range.location + range.length), withBytes: nil, length: 0)
             return line

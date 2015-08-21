@@ -40,7 +40,7 @@ class TwitterAPIStreamingRequest: NSObject, NSURLSessionDataDelegate {
 
     func connection(connection: NSURLConnection, didReceiveData data: NSData) {
         self.scanner.appendData(data)
-        while let data = self.scanner.nextLine() {
+        while let data = self.scanner.next() {
             if data.length > 0 {
                 let json = JSON(data: data)
             }
