@@ -51,11 +51,12 @@ class TwitterAPIStreamingRequest: NSObject, NSURLSessionDataDelegate {
 
 ### Bytes
 
-#### read(length: Int) -> NSData?
+- `read(length: Int) -> NSData?`
 
 ```swift
 let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataUsingEncoding(NSUTF8StringEncoding)!
 let scanner = MutableDataScanner(data: data)
+
 scanner.read(length: 10) // => 0123456789
 scanner.read(length: 10) // => abcdefghij
 scanner.read(length: 10) // => klmnopqrst
@@ -63,11 +64,12 @@ scanner.read(length: 10) // => uvwxyz
 scanner.read(length: 10) // => (nil)
 ```
 
-#### read(offset: Int, length: Int) -> NSData?
+- `read(offset: Int, length: Int) -> NSData?`
 
 ```swift
 let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataUsingEncoding(NSUTF8StringEncoding)!
 let scanner = MutableDataScanner(data: data)
+
 scanner.read(offset: 5, length: 5) // => 56789
 scanner.read(offset: 5, length: 5) // => fghij
 scanner.read(offset: 5, length: 5) // => pqrst
@@ -79,10 +81,10 @@ scanner.read(offset: 5, length: 5) // => (nil)
 
 #### Specify the delimiter in the properties.
 
-- init(data: NSMutableData = default, delimiter: NSData)
-- init(data: NSMutableData = default, delimiter: String)
-- next() -> NSData?
-- hasNext() -> Bool
+- `init(data: NSMutableData = default, delimiter: NSData)`
+- `init(data: NSMutableData = default, delimiter: String)`
+- `next() -> NSData?`
+- `hasNext() -> Bool`
 
 ```swift
 let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
@@ -104,10 +106,10 @@ scanner.next() // => (nil)
 
 #### Specify the delimiter in the arguments.
 
-- next(delimiter: NSData) -> NSData?
-- hasNext(delimiter: NSData) -> Bool
-- next(delimiter: String) -> NSData?
-- hasNext(delimiter: String) -> Bool
+- `next(delimiter: NSData) -> NSData?`
+- `hasNext(delimiter: NSData) -> Bool`
+- `next(delimiter: String) -> NSData?`
+- `hasNext(delimiter: String) -> Bool`
 
 ```swift
 let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
@@ -124,8 +126,8 @@ scanner.data // => abcdefghijklmnopqrstuvwxyz\n0123
 
 #### CRLF or LF
 
-- nextLine() -> NSData?
-- hasNextLine -> Bool
+- `nextLine() -> NSData?`
+- `hasNextLine -> Bool`
 
 ```swift
 let data = "0123456789\r\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
