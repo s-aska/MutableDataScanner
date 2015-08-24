@@ -77,7 +77,12 @@ scanner.read(offset: 5, length: 5) // => (nil)
 
 ### Delimiter
 
-#### next() -> NSData? / hasNext() -> Bool
+#### Specify the delimiter in the properties.
+
+- init(data: NSMutableData = default, delimiter: NSData)
+- init(data: NSMutableData = default, delimiter: String)
+- next() -> NSData?
+- hasNext() -> Bool
 
 ```swift
 let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
@@ -97,7 +102,12 @@ scanner.hasNext() // => false
 scanner.next() // => (nil)
 ```
 
-#### with delimiter
+#### Specify the delimiter in the arguments.
+
+- next(delimiter: NSData) -> NSData?
+- hasNext(delimiter: NSData) -> Bool
+- next(delimiter: String) -> NSData?
+- hasNext(delimiter: String) -> Bool
 
 ```swift
 let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
@@ -112,9 +122,10 @@ scanner.next("\n") // => 0123456789
 scanner.data // => abcdefghijklmnopqrstuvwxyz\n0123
 ```
 
-#### nextLine() -> NSData? / hasNextLine -> Bool
+#### CRLF or LF
 
-**CRLF or LF**
+- nextLine() -> NSData?
+- hasNextLine -> Bool
 
 ```swift
 let data = "0123456789\r\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
