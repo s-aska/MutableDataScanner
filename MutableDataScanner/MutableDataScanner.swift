@@ -12,13 +12,19 @@ import Foundation
 *  A simple text scanner which can parse NSMutableData using delimiter module, but as a class.
 */
 public class MutableDataScanner {
-    
+
+    /**
+    *  Constants to use nextLine() and hasNextLine().
+    */
     struct Static {
         static let CR = "\r".dataUsingEncoding(NSUTF8StringEncoding)!
         static let LF = "\n".dataUsingEncoding(NSUTF8StringEncoding)!
     }
     
+    /// buffer.
     public var data: NSMutableData
+    
+    /// delimiter to use with no arguments next() and hasNext().
     public var delimiter: NSData?
     
     /**
