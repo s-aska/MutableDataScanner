@@ -63,16 +63,38 @@ public class MutableDataScanner {
     
     public func hasNext() -> Bool {
         guard let delimiter = delimiter else {
-            fatalError("next() need delimiter.")
+            fatalError("hasNext() need delimiter. eg: MutableDataScanner(delimiter: NSData or String)")
         }
-        let range = data.rangeOfData(delimiter, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
-        return range.location != NSNotFound
+        return self.hasNext(delimiter)
     }
     
     public func next() -> NSData? {
         guard let delimiter = delimiter else {
-            fatalError("next() need delimiter.")
+            fatalError("next() need delimiter. eg: MutableDataScanner(delimiter: NSData or String)")
         }
+        return self.next(delimiter)
+    }
+    
+    public func hasNext(delimiter: String) -> Bool {
+        guard let delimiter = delimiter.dataUsingEncoding(NSUTF8StringEncoding) else {
+            fatalError("dataUsingEncoding(NSUTF8StringEncoding) failure.")
+        }
+        return self.hasNext(delimiter)
+    }
+    
+    public func next(delimiter: String) -> NSData? {
+        guard let delimiter = delimiter.dataUsingEncoding(NSUTF8StringEncoding) else {
+            fatalError("dataUsingEncoding(NSUTF8StringEncoding) failure.")
+        }
+        return self.next(delimiter)
+    }
+    
+    public func hasNext(delimiter: NSData) -> Bool {
+        let range = data.rangeOfData(delimiter, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
+        return range.location != NSNotFound
+    }
+    
+    public func next(delimiter: NSData) -> NSData? {
         let range = data.rangeOfData(delimiter, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
         if range.location != NSNotFound {
             let line = data.subdataWithRange(NSMakeRange(0, range.location))

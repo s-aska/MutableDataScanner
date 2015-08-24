@@ -49,6 +49,79 @@ class TwitterAPIStreamingRequest: NSObject, NSURLSessionDataDelegate {
 }
 ```
 
+### Bytes
+
+#### read(length: Int) -> NSData?
+
+```swift
+let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataUsingEncoding(NSUTF8StringEncoding)!
+let scanner = MutableDataScanner(data: data)
+scanner.read(length: 10) // => 0123456789
+scanner.read(length: 10) // => abcdefghij
+scanner.read(length: 10) // => klmnopqrst
+scanner.read(length: 10) // => uvwxyz
+scanner.read(length: 10) // => (nil)
+```
+
+#### read(offset: Int, length: Int) -> NSData?
+
+```swift
+let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataUsingEncoding(NSUTF8StringEncoding)!
+let scanner = MutableDataScanner(data: data)
+scanner.read(offset: 5, length: 5) // => 56789
+scanner.read(offset: 5, length: 5) // => fghij
+scanner.read(offset: 5, length: 5) // => pqrst
+scanner.read(offset: 5, length: 5) // => z
+scanner.read(offset: 5, length: 5) // => (nil)
+```
+
+### Delimiter
+
+#### next() -> NSData? / hasNext() -> Bool
+
+```swift
+let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
+let scanner = MutableDataScanner(data: data, delimiter: "\n")
+
+scanner.hasNext() // => true
+scanner.next() // => 0123456789
+scanner.data // => abcdefghijklmnopqrstuvwxyz\n0123
+
+scanner.hasNext() // => true
+scanner.next() // => abcdefghijklmnopqrstuvwxyz
+scanner.data // => 0123
+
+scanner.hasNext() // => false
+scanner.next() // => (nil)
+```
+
+#### with delimiter
+
+```swift
+let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
+let scanner = MutableDataScanner(data: data)
+
+scanner.hasNext("\r\n") // => false
+scanner.hasNext("\n") // => true
+scanner.next("\r\n") // => (nil)
+scanner.next("\n") // => 0123456789
+scanner.data // => abcdefghijklmnopqrstuvwxyz\n0123
+```
+
+#### nextLine() -> NSData? / hasNextLine -> Bool
+
+```swift
+let data = "0123456789\r\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
+let scanner = MutableDataScanner(data: data)
+scanner.hasNextLine() // => true
+scanner.nextLine() // => 0123456789
+scanner.hasNextLine() // => true
+scanner.nextLine() // => abcdefghijklmnopqrstuvwxyz
+scanner.hasNextLine() // => false
+scanner.nextLine() // => (nil)
+scanner.data // => 0123
+```
+
 
 ## Requirements
 
