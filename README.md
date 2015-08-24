@@ -16,8 +16,8 @@ It can be easily and reliably parse of the Twitter Streaming API and other strea
 
 Test: https://github.com/s-aska/MutableDataScanner/blob/master/MutableDataScannerTests/MutableDataScannerTests.swift
 
-- MutableDataScanner auto delimiter ( CRLF or LF ) ... average: 0.092
 - MutableDataScanner specific delimiter ... average: __0.071__
+- MutableDataScanner line delimiter ( CRLF or LF ) ... average: 0.092
 - String#componentsSeparatedByString ... average: 0.304
 
 
