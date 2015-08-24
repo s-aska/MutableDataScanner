@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MutableDataScanner"
-  s.version          = "0.0.1"
+  s.version          = "1.0.0"
   s.summary          = "A simple text scanner which can parse NSMutableData using delimiter."
   s.description      = <<-DESC
                          A simple text scanner which can parse NSMutableData using delimiter.
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                          It can be easily and reliably parse of the Twitter Streaming API and other stream.
                        DESC
   s.homepage         = "https://github.com/s-aska/MutableDataScanner"
-  s.license          = 'MIT'
+  s.license          = "MIT"
   s.author           = { "aska" => "s.aska.org@gmail.com" }
   s.social_media_url = "https://twitter.com/su_aska"
   s.source           = { :git => "https://github.com/s-aska/MutableDataScanner.git", :tag => "#{s.version}" }
