@@ -21,60 +21,60 @@ class MutableDataScannerTests: XCTestCase {
     
     func testInitDefault() {
         let scanner = MutableDataScanner()
-        assert(scanner.delimiter == nil)
+        XCTAssertEqual(scanner.delimiter, nil)
     }
     
     func testInitWithData() {
         let data = NSMutableData()
         let scanner = MutableDataScanner(data: data)
         data.appendData("012345".dataValue)
-        assert(scanner.data == data)
+        XCTAssertEqual(scanner.data, data)
     }
     
     func testInitWithDataAndDelimiterString() {
         let data = NSMutableData()
         let scanner = MutableDataScanner(data: data, delimiter: "\t")
         data.appendData("012345".dataValue)
-        assert(scanner.data == data)
-        assert(scanner.delimiter?.stringValue == "\t")
+        XCTAssertEqual(scanner.data, data)
+        XCTAssertEqual(scanner.delimiter?.stringValue, "\t")
     }
     
     func testInitWithDelimiterData() {
         let scanner = MutableDataScanner(delimiter: "\t".dataValue)
-        assert(scanner.delimiter?.stringValue == "\t")
+        XCTAssertEqual(scanner.delimiter?.stringValue, "\t")
     }
     
     func testInitWithDelimiterString() {
         let scanner = MutableDataScanner(delimiter: "\t")
-        assert(scanner.delimiter?.stringValue == "\t")
+        XCTAssertEqual(scanner.delimiter?.stringValue, "\t")
     }
     
     func testReadLength() {
         let scanner = MutableDataScanner()
         let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataValue
         scanner.appendData(data)
-        assert(scanner.read(length: 10)!.stringValue == "0123456789", "read length")
-        assert(scanner.read(length: 10)!.stringValue == "abcdefghij", "read length")
-        assert(scanner.read(length: scanner.data.length)!.stringValue == "klmnopqrstuvwxyz", "read length")
-        assert(scanner.read(length: 1) == nil)
+        XCTAssertEqual(scanner.read(length: 10)!.stringValue, "0123456789", "read length")
+        XCTAssertEqual(scanner.read(length: 10)!.stringValue, "abcdefghij", "read length")
+        XCTAssertEqual(scanner.read(length: scanner.data.length)!.stringValue, "klmnopqrstuvwxyz", "read length")
+        XCTAssertEqual(scanner.read(length: 1), nil)
     }
     
     func testReadLengthOver() {
         let scanner = MutableDataScanner()
         let data = "012345".dataValue
         scanner.appendData(data)
-        assert(scanner.read(length: 100)!.stringValue == "012345", "read length")
-        assert(scanner.read(length: 1) == nil)
+        XCTAssertEqual(scanner.read(length: 100)!.stringValue, "012345", "read length")
+        XCTAssertEqual(scanner.read(length: 1), nil)
     }
     
     func testReadOffsetLength() {
         let scanner = MutableDataScanner()
         let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataValue
         scanner.appendData(data)
-        assert(scanner.read(offset: 3, length: 7)!.stringValue == "3456789", "read length")
-        assert(scanner.read(offset: 3, length: 7)!.stringValue == "defghij", "read length")
-        assert(scanner.read(offset: 3, length: scanner.data.length)!.stringValue == "nopqrstuvwxyz", "read length")
-        assert(scanner.read(offset: 3, length: 1) == nil)
+        XCTAssertEqual(scanner.read(offset: 3, length: 7)!.stringValue, "3456789", "read length")
+        XCTAssertEqual(scanner.read(offset: 3, length: 7)!.stringValue, "defghij", "read length")
+        XCTAssertEqual(scanner.read(offset: 3, length: scanner.data.length)!.stringValue, "nopqrstuvwxyz", "read length")
+        XCTAssertEqual(scanner.read(offset: 3, length: 1), nil)
     }
     
     func testNextLine() {
@@ -83,11 +83,11 @@ class MutableDataScannerTests: XCTestCase {
         var count = 0
         scanner.appendData(data)
         while let line = scanner.nextLine() {
-            assert(line.stringValue == "1")
+            XCTAssertEqual(line.stringValue, "1")
             count++
         }
-        assert(count == 2, "data count")
-        assert(scanner.data.length == 3, "buffer length")
+        XCTAssertEqual(count, 2, "data count")
+        XCTAssertEqual(scanner.data.length, 3, "buffer length")
     }
     
     func testNext() {
@@ -100,8 +100,8 @@ class MutableDataScannerTests: XCTestCase {
             assert(line.stringValue == "012345\nabcdefg")
             count++
         }
-        assert(count == 1, "data count")
-        assert(scanner.data.length == 0, "buffer length")
+        XCTAssertEqual(count, 1, "data count")
+        XCTAssertEqual(scanner.data.length, 0, "buffer length")
     }
     
     func testPerformanceAutoDelimiter() {
