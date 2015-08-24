@@ -83,6 +83,8 @@ scanner.read(offset: 5, length: 5) // => (nil)
 let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
 let scanner = MutableDataScanner(data: data, delimiter: "\n")
 
+scanner.data // => 0123456789\nabcdefghijklmnopqrstuvwxyz\n0123
+
 scanner.hasNext() // => true
 scanner.next() // => 0123456789
 scanner.data // => abcdefghijklmnopqrstuvwxyz\n0123
@@ -101,6 +103,8 @@ scanner.next() // => (nil)
 let data = "0123456789\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
 let scanner = MutableDataScanner(data: data)
 
+scanner.data // => 0123456789\nabcdefghijklmnopqrstuvwxyz\n0123
+
 scanner.hasNext("\r\n") // => false
 scanner.hasNext("\n") // => true
 scanner.next("\r\n") // => (nil)
@@ -110,16 +114,24 @@ scanner.data // => abcdefghijklmnopqrstuvwxyz\n0123
 
 #### nextLine() -> NSData? / hasNextLine -> Bool
 
+**CRLF or LF**
+
 ```swift
 let data = "0123456789\r\nabcdefghijklmnopqrstuvwxyz\n0123".dataUsingEncoding(NSUTF8StringEncoding)!
 let scanner = MutableDataScanner(data: data)
+
+scanner.data // => 0123456789\r\nabcdefghijklmnopqrstuvwxyz\n0123
+
 scanner.hasNextLine() // => true
 scanner.nextLine() // => 0123456789
+scanner.data // => abcdefghijklmnopqrstuvwxyz\n0123
+
 scanner.hasNextLine() // => true
 scanner.nextLine() // => abcdefghijklmnopqrstuvwxyz
+scanner.data // => 0123
+
 scanner.hasNextLine() // => false
 scanner.nextLine() // => (nil)
-scanner.data // => 0123
 ```
 
 
