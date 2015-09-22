@@ -151,7 +151,7 @@ scanner.nextLine() // => (nil)
 ## Requirements
 
 - iOS 8.0+ / Mac OS X 10.10+
-- Swift 2.0 and Xcode 7
+- Xcode 7.0+
 
 
 ## Installation
@@ -160,7 +160,7 @@ scanner.nextLine() // => (nil)
 
 Add the following line to your [Cartfile](https://github.com/carthage/carthage)
 
-```swift
+```
 github "s-aska/MutableDataScanner"
 ```
 
@@ -168,7 +168,7 @@ github "s-aska/MutableDataScanner"
 
 Add the following line to your [Podfile](https://guides.cocoapods.org/)
 
-```swift
+```
 pod 'MutableDataScanner'
 ```
 
