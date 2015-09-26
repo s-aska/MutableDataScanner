@@ -169,6 +169,7 @@ github "s-aska/MutableDataScanner"
 Add the following line to your [Podfile](https://guides.cocoapods.org/)
 
 ```
+use_frameworks!
 pod 'MutableDataScanner'
 ```
 
