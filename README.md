@@ -2,8 +2,9 @@
 
 [![Build Status](https://www.bitrise.io/app/b6bf3a2353584846.svg?token=AfNOSpFuWfABDb-o68wScg&branch=master)](https://www.bitrise.io/app/b6bf3a2353584846)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![](http://img.shields.io/badge/iOS-8.0%2B-brightgreen.svg?style=flat)]()
-[![](http://img.shields.io/badge/OS%20X-10.10%2B-brightgreen.svg?style=flat)]()
+[![](https://img.shields.io/badge/Xcode-7.0%2B-brightgreen.svg?style=flat)]()
+[![](https://img.shields.io/badge/iOS-8.0%2B-brightgreen.svg?style=flat)]()
+[![](https://img.shields.io/badge/OS%20X-10.10%2B-brightgreen.svg?style=flat)]()
 
 A simple text scanner which can parse NSMutableData using delimiter.
 
