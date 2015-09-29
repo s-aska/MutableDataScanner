@@ -8,11 +8,7 @@
 
 import Foundation
 
-/**
-
-A simple text scanner which can parse NSMutableData using delimiter module, but as a class.
-
-*/
+/// A simple text scanner which can parse NSMutableData using delimiter module, but as a class.
 public class MutableDataScanner {
 
     /// Constants to use nextLine() and hasNextLine().
@@ -30,7 +26,9 @@ public class MutableDataScanner {
     /**
     Create A MutableDataScanner Instance
     
-    :param: data buffer.
+    - parameter data: buffer
+    
+    - returns: MutableDataScanner Instance
     */
     public init(data: NSMutableData = NSMutableData()) {
         self.data = data
@@ -40,19 +38,19 @@ public class MutableDataScanner {
     /**
     Create A MutableDataScanner Instance
     
-    :param: data buffer.
-    :param: delimiter to use with no arguments next() and hasNext().
+    - parameter data: buffer.
+    - parameter delimiter: to use with no arguments next() and hasNext().
     */
     public init(data: NSMutableData = NSMutableData(), delimiter: NSData) {
         self.data = data
         self.delimiter = delimiter
     }
-    
+
     /**
     Create A MutableDataScanner Instance
     
-    :param: data buffer.
-    :param: delimiter to use with no arguments next() and hasNext().
+    - parameter data: buffer.
+    - parameter delimiter: to use with no arguments next() and hasNext().
     */
     public init(data: NSMutableData = NSMutableData(), delimiter: String) {
         self.data = data
@@ -63,7 +61,7 @@ public class MutableDataScanner {
     Appends the content of another NSData object to the buffer.
     The data object whose content is to be appended to the contents of the buffer.
     
-    :param: data The data object whose content is to be appended to the contents of the buffer.
+    - parameter data: The data object whose content is to be appended to the contents of the buffer.
     */
     public func appendData(data: NSData) {
         self.data.appendData(data)
@@ -72,10 +70,10 @@ public class MutableDataScanner {
     /**
     It returns data for the specified length from the specified read start position, and then removed from the buffer.
     
-    :param: offset reading start position
-    :param: length reading data length
+    - parameter offset: reading start position
+    - parameter length: reading data length
     
-    :returns: Data of specified length
+    - returns: Data of specified length
     */
     public func read(offset offset: Int, var length: Int) -> NSData? {
         if offset > data.length {
@@ -92,9 +90,9 @@ public class MutableDataScanner {
     /**
     It returns data for the specified length, and then removed from the buffer.
     
-    :param: length reading data length
+    - parameter length: reading data length
     
-    :returns: Data of specified length
+    - returns: Data of specified length
     */
     public func read(var length length: Int) -> NSData? {
         if data.length == 0 {
@@ -111,9 +109,9 @@ public class MutableDataScanner {
     /**
     Returns true if it contains a delimiter in buffer.
     
-    :param: delimiter delimiter data
+    - parameter delimiter: delimiter data
     
-    :returns: true if it contains a delimiter in buffer.
+    - returns: true if it contains a delimiter in buffer.
     */
     public func hasNext() -> Bool {
         guard let delimiter = delimiter else {
@@ -127,7 +125,7 @@ public class MutableDataScanner {
     If there is no delimiter in the buffer, it returns nil.
     It does not include delimiter in the data.
     
-    :returns: data to the next delimiter.
+    - returns: data to the next delimiter.
     */
     public func next() -> NSData? {
         guard let delimiter = delimiter else {
@@ -139,9 +137,9 @@ public class MutableDataScanner {
     /**
     Returns true if it contains a delimiter in buffer.
     
-    :param: delimiter delimiter data
+    - parameter delimiter: delimiter data
     
-    :returns: true if it contains a delimiter in buffer.
+    - returns: true if it contains a delimiter in buffer.
     */
     public func hasNext(delimiter: String) -> Bool {
         guard let delimiter = delimiter.dataUsingEncoding(NSUTF8StringEncoding) else {
@@ -155,9 +153,9 @@ public class MutableDataScanner {
     If there is no delimiter in the buffer, it returns nil.
     It does not include delimiter in the data.
     
-    :param: delimiter delimiter data
+    - parameter delimiter: delimiter data
     
-    :returns: data to the next delimiter.
+    - returns: data to the next delimiter.
     */
     public func next(delimiter: String) -> NSData? {
         guard let delimiter = delimiter.dataUsingEncoding(NSUTF8StringEncoding) else {
@@ -169,9 +167,9 @@ public class MutableDataScanner {
     /**
     Returns true if it contains a delimiter in buffer.
     
-    :param: delimiter delimiter data
+    - parameter delimiter: delimiter data
     
-    :returns: true if it contains a delimiter in buffer.
+    - returns: true if it contains a delimiter in buffer.
     */
     public func hasNext(delimiter: NSData) -> Bool {
         let range = data.rangeOfData(delimiter, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
@@ -183,9 +181,9 @@ public class MutableDataScanner {
     If there is no delimiter in the buffer, it returns nil.
     It does not include delimiter in the data.
     
-    :param: delimiter delimiter data
+    - parameter delimiter: delimiter data
     
-    :returns: data to the next delimiter.
+    - returns: data to the next delimiter.
     */
     public func next(delimiter: NSData) -> NSData? {
         let range = data.rangeOfData(delimiter, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
@@ -202,7 +200,7 @@ public class MutableDataScanner {
     Returns true if the buffer there is a line break
     It considers the CRLF or LF and line feed.
     
-    :returns: true if the buffer there is a line break
+    - returns: true if the buffer there is a line break
     */
     public func hasNextLine() -> Bool {
         let range = data.rangeOfData(Static.LF, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
@@ -214,7 +212,7 @@ public class MutableDataScanner {
     If there is no new line in the buffer, it returns nil.
     It considers the CRLF or LF and line feed.
     
-    :returns: the next line
+    - returns: the next line
     */
     public func nextLine() -> NSData? {
         let range = data.rangeOfData(Static.LF, options: NSDataSearchOptions(rawValue: 0), range: NSMakeRange(0, data.length))
