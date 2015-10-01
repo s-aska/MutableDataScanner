@@ -40,12 +40,12 @@
 		6AF4302D1B85156D00493F83 /* MutableDataScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MutableDataScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF430301B85156D00493F83 /* MutableDataScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MutableDataScanner.h; sourceTree = "<group>"; };
 		6AF430321B85156D00493F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6AF430371B85156D00493F83 /* MutableDataScanner-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MutableDataScanner-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF430371B85156D00493F83 /* MutableDataScanner iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MutableDataScanner iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF4303C1B85156D00493F83 /* MutableDataScannerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableDataScannerTests.swift; sourceTree = "<group>"; };
 		6AF4303E1B85156D00493F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AF430471B85158000493F83 /* MutableDataScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableDataScanner.swift; sourceTree = "<group>"; };
 		6AF4304F1B85166E00493F83 /* MutableDataScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MutableDataScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AF430581B85166E00493F83 /* MutableDataScanner-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MutableDataScanner-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF430581B85166E00493F83 /* MutableDataScanner Mac Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MutableDataScanner Mac Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,9 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				6AF4302D1B85156D00493F83 /* MutableDataScanner.framework */,
-				6AF430371B85156D00493F83 /* MutableDataScanner-iOSTests.xctest */,
+				6AF430371B85156D00493F83 /* MutableDataScanner iOS Tests.xctest */,
 				6AF4304F1B85166E00493F83 /* MutableDataScanner.framework */,
-				6AF430581B85166E00493F83 /* MutableDataScanner-MacTests.xctest */,
+				6AF430581B85166E00493F83 /* MutableDataScanner Mac Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,9 +143,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		6AF4302C1B85156D00493F83 /* MutableDataScanner-iOS */ = {
+		6AF4302C1B85156D00493F83 /* MutableDataScanner iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AF430411B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-iOS" */;
+			buildConfigurationList = 6AF430411B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner iOS" */;
 			buildPhases = (
 				6AF430281B85156D00493F83 /* Sources */,
 				6AF430291B85156D00493F83 /* Frameworks */,
@@ -156,14 +156,14 @@
 			);
 			dependencies = (
 			);
-			name = "MutableDataScanner-iOS";
+			name = "MutableDataScanner iOS";
 			productName = MutableDataScanner;
 			productReference = 6AF4302D1B85156D00493F83 /* MutableDataScanner.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6AF430361B85156D00493F83 /* MutableDataScanner-iOSTests */ = {
+		6AF430361B85156D00493F83 /* MutableDataScanner iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AF430441B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-iOSTests" */;
+			buildConfigurationList = 6AF430441B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner iOS Tests" */;
 			buildPhases = (
 				6AF430331B85156D00493F83 /* Sources */,
 				6AF430341B85156D00493F83 /* Frameworks */,
@@ -174,14 +174,14 @@
 			dependencies = (
 				6AF4303A1B85156D00493F83 /* PBXTargetDependency */,
 			);
-			name = "MutableDataScanner-iOSTests";
+			name = "MutableDataScanner iOS Tests";
 			productName = MutableDataScannerTests;
-			productReference = 6AF430371B85156D00493F83 /* MutableDataScanner-iOSTests.xctest */;
+			productReference = 6AF430371B85156D00493F83 /* MutableDataScanner iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		6AF4304E1B85166E00493F83 /* MutableDataScanner-Mac */ = {
+		6AF4304E1B85166E00493F83 /* MutableDataScanner Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AF430601B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-Mac" */;
+			buildConfigurationList = 6AF430601B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner Mac" */;
 			buildPhases = (
 				6AF4304A1B85166E00493F83 /* Sources */,
 				6AF4304B1B85166E00493F83 /* Frameworks */,
@@ -192,14 +192,14 @@
 			);
 			dependencies = (
 			);
-			name = "MutableDataScanner-Mac";
+			name = "MutableDataScanner Mac";
 			productName = MutableDataScanner;
 			productReference = 6AF4304F1B85166E00493F83 /* MutableDataScanner.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6AF430571B85166E00493F83 /* MutableDataScanner-MacTests */ = {
+		6AF430571B85166E00493F83 /* MutableDataScanner Mac Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AF430631B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-MacTests" */;
+			buildConfigurationList = 6AF430631B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner Mac Tests" */;
 			buildPhases = (
 				6AF430541B85166E00493F83 /* Sources */,
 				6AF430551B85166E00493F83 /* Frameworks */,
@@ -210,9 +210,9 @@
 			dependencies = (
 				6AF4305B1B85166E00493F83 /* PBXTargetDependency */,
 			);
-			name = "MutableDataScanner-MacTests";
+			name = "MutableDataScanner Mac Tests";
 			productName = MutableDataScannerTests;
-			productReference = 6AF430581B85166E00493F83 /* MutableDataScanner-MacTests.xctest */;
+			productReference = 6AF430581B85166E00493F83 /* MutableDataScanner Mac Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -251,10 +251,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AF4302C1B85156D00493F83 /* MutableDataScanner-iOS */,
-				6AF430361B85156D00493F83 /* MutableDataScanner-iOSTests */,
-				6AF4304E1B85166E00493F83 /* MutableDataScanner-Mac */,
-				6AF430571B85166E00493F83 /* MutableDataScanner-MacTests */,
+				6AF4302C1B85156D00493F83 /* MutableDataScanner iOS */,
+				6AF430361B85156D00493F83 /* MutableDataScanner iOS Tests */,
+				6AF4304E1B85166E00493F83 /* MutableDataScanner Mac */,
+				6AF430571B85166E00493F83 /* MutableDataScanner Mac Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -330,12 +330,12 @@
 /* Begin PBXTargetDependency section */
 		6AF4303A1B85156D00493F83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6AF4302C1B85156D00493F83 /* MutableDataScanner-iOS */;
+			target = 6AF4302C1B85156D00493F83 /* MutableDataScanner iOS */;
 			targetProxy = 6AF430391B85156D00493F83 /* PBXContainerItemProxy */;
 		};
 		6AF4305B1B85166E00493F83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6AF4304E1B85166E00493F83 /* MutableDataScanner-Mac */;
+			target = 6AF4304E1B85166E00493F83 /* MutableDataScanner Mac */;
 			targetProxy = 6AF4305A1B85166E00493F83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -569,7 +569,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AF430411B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-iOS" */ = {
+		6AF430411B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AF430421B85156D00493F83 /* Debug */,
@@ -578,7 +578,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AF430441B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-iOSTests" */ = {
+		6AF430441B85156D00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AF430451B85156D00493F83 /* Debug */,
@@ -587,7 +587,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AF430601B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-Mac" */ = {
+		6AF430601B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AF430611B85166E00493F83 /* Debug */,
@@ -596,7 +596,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AF430631B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner-MacTests" */ = {
+		6AF430631B85166E00493F83 /* Build configuration list for PBXNativeTarget "MutableDataScanner Mac Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6AF430641B85166E00493F83 /* Debug */,

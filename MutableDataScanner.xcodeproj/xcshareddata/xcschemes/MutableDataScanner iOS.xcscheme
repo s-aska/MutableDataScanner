@@ -14,23 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AF4304E1B85166E00493F83"
+               BlueprintIdentifier = "6AF4302C1B85156D00493F83"
                BuildableName = "MutableDataScanner.framework"
-               BlueprintName = "MutableDataScanner-Mac"
+               BlueprintName = "MutableDataScanner iOS"
                ReferencedContainer = "container:MutableDataScanner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "NO"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AF430571B85166E00493F83"
-               BuildableName = "MutableDataScanner-MacTests.xctest"
-               BlueprintName = "MutableDataScanner-MacTests"
+               BlueprintIdentifier = "6AF430361B85156D00493F83"
+               BuildableName = "MutableDataScanner iOS Tests.xctest"
+               BlueprintName = "MutableDataScanner iOS Tests"
                ReferencedContainer = "container:MutableDataScanner.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AF430571B85166E00493F83"
-               BuildableName = "MutableDataScanner-MacTests.xctest"
-               BlueprintName = "MutableDataScanner-MacTests"
+               BlueprintIdentifier = "6AF430361B85156D00493F83"
+               BuildableName = "MutableDataScanner iOS Tests.xctest"
+               BlueprintName = "MutableDataScanner iOS Tests"
                ReferencedContainer = "container:MutableDataScanner.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AF4304E1B85166E00493F83"
+            BlueprintIdentifier = "6AF4302C1B85156D00493F83"
             BuildableName = "MutableDataScanner.framework"
-            BlueprintName = "MutableDataScanner-Mac"
+            BlueprintName = "MutableDataScanner iOS"
             ReferencedContainer = "container:MutableDataScanner.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -78,9 +78,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AF4304E1B85166E00493F83"
+            BlueprintIdentifier = "6AF4302C1B85156D00493F83"
             BuildableName = "MutableDataScanner.framework"
-            BlueprintName = "MutableDataScanner-Mac"
+            BlueprintName = "MutableDataScanner iOS"
             ReferencedContainer = "container:MutableDataScanner.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -96,9 +96,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AF4304E1B85166E00493F83"
+            BlueprintIdentifier = "6AF4302C1B85156D00493F83"
             BuildableName = "MutableDataScanner.framework"
-            BlueprintName = "MutableDataScanner-Mac"
+            BlueprintName = "MutableDataScanner iOS"
             ReferencedContainer = "container:MutableDataScanner.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
