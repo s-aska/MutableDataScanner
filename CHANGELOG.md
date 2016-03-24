@@ -1,3 +1,8 @@
+# 1.0.8
+
+Swift 2.2　optimization
+SwiftLint
+
 # 1.0.7
 
 Rename scheme name
