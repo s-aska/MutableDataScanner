@@ -152,7 +152,7 @@ scanner.nextLine() // => (nil)
 ## Requirements
 
 - iOS 8.0+ / Mac OS X 10.10+
-- Xcode 7.0+
+- Xcode 7.3+
 
 
 ## Installation
