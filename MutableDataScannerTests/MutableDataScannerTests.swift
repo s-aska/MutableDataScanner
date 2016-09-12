@@ -38,30 +38,30 @@ class MutableDataScannerTests: XCTestCase {
         let scanner = MutableDataScanner()
         let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataValue
         scanner.append(data)
-        XCTAssertEqual(scanner.read(length: 10)!.stringValue, "0123456789", "read length")
-        XCTAssertEqual(scanner.read(length: 10)!.stringValue, "abcdefghij", "read length")
-        XCTAssertEqual(scanner.read(length: scanner.data.count)!.stringValue,
+        XCTAssertEqual(scanner.read(10)!.stringValue, "0123456789", "read length")
+        XCTAssertEqual(scanner.read(10)!.stringValue, "abcdefghij", "read length")
+        XCTAssertEqual(scanner.read(scanner.data.count)!.stringValue,
                        "klmnopqrstuvwxyz", "read length")
-        XCTAssertEqual(scanner.read(length: 1), nil)
+        XCTAssertEqual(scanner.read(1), nil)
     }
 
     func testReadLengthOver() {
         let scanner = MutableDataScanner()
         let data = "012345".dataValue
         scanner.append(data)
-        XCTAssertEqual(scanner.read(length: 100)!.stringValue, "012345", "read length")
-        XCTAssertEqual(scanner.read(length: 1), nil)
+        XCTAssertEqual(scanner.read(100)!.stringValue, "012345", "read length")
+        XCTAssertEqual(scanner.read(1), nil)
     }
 
     func testReadOffsetLength() {
         let scanner = MutableDataScanner()
         let data = "0123456789abcdefghijklmnopqrstuvwxyz".dataValue
         scanner.append(data)
-        XCTAssertEqual(scanner.read(offset: 3, length: 7)!.stringValue, "3456789", "read length")
-        XCTAssertEqual(scanner.read(offset: 3, length: 7)!.stringValue, "defghij", "read length")
-        XCTAssertEqual(scanner.read(offset: 3, length: scanner.data.count)!.stringValue,
+        XCTAssertEqual(scanner.read(3, length: 7)!.stringValue, "3456789", "read length")
+        XCTAssertEqual(scanner.read(3, length: 7)!.stringValue, "defghij", "read length")
+        XCTAssertEqual(scanner.read(3, length: scanner.data.count)!.stringValue,
                        "nopqrstuvwxyz", "read length")
-        XCTAssertEqual(scanner.read(offset: 3, length: 1), nil)
+        XCTAssertEqual(scanner.read(3, length: 1), nil)
     }
 
     func testNextLine() {

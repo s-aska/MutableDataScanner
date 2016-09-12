@@ -9,7 +9,7 @@
 import Foundation
 
 /// A simple text scanner which can parse NSMutableData using delimiter module, but as a class.
-public class MutableDataScanner {
+open class MutableDataScanner {
 
     /// Constants to use nextLine() and hasNextLine().
     struct Static {
@@ -19,10 +19,10 @@ public class MutableDataScanner {
     }
 
     /// buffer.
-    public var data: Data
+    open var data: Data
 
     /// delimiter to use with no arguments next() and hasNext().
-    public var delimiter: Data?
+    open var delimiter: Data?
 
     /**
      Create A MutableDataScanner Instance
@@ -59,7 +59,7 @@ public class MutableDataScanner {
 
      - parameter data: Data to be added to the buffer.
      */
-    public func append(_ data: Data) {
+    open func append(_ data: Data) {
         self.data.append(data)
     }
 
@@ -72,7 +72,7 @@ public class MutableDataScanner {
 
      - returns: Data of specified length
      */
-    public func read(offset: Int, length: Int) -> Data? {
+    open func read(_ offset: Int, length: Int) -> Data? {
         if offset > data.count {
             return nil
         }
@@ -89,7 +89,7 @@ public class MutableDataScanner {
 
      - returns: Data of specified length
      */
-    public func read(length: Int) -> Data? {
+    open func read(_ length: Int) -> Data? {
         if data.count == 0 {
             return nil
         }
@@ -104,7 +104,7 @@ public class MutableDataScanner {
 
      - returns: true if it contains a delimiter in buffer.
      */
-    public func hasNext() -> Bool {
+    open func hasNext() -> Bool {
         guard let delimiter = delimiter else {
             fatalError("hasNext() need delimiter."
                 + " eg: MutableDataScanner(delimiter: Data or String)")
@@ -119,7 +119,7 @@ public class MutableDataScanner {
 
      - returns: data to the next delimiter.
      */
-    public func next() -> Data? {
+    open func next() -> Data? {
         guard let delimiter = delimiter else {
             fatalError("next() need delimiter. eg: MutableDataScanner(delimiter: Data or String)")
         }
@@ -133,7 +133,7 @@ public class MutableDataScanner {
 
      - returns: true if it contains a delimiter in buffer.
      */
-    public func hasNext(_ delimiter: String) -> Bool {
+    open func hasNext(_ delimiter: String) -> Bool {
         guard let delimiter = delimiter.data(using: String.Encoding.utf8) else {
             fatalError("dataUsingEncoding(NSUTF8StringEncoding) failure.")
         }
@@ -149,7 +149,7 @@ public class MutableDataScanner {
 
      - returns: data to the next delimiter.
      */
-    public func next(_ delimiter: String) -> Data? {
+    open func next(_ delimiter: String) -> Data? {
         guard let delimiter = delimiter.data(using: String.Encoding.utf8) else {
             fatalError("dataUsingEncoding(NSUTF8StringEncoding) failure.")
         }
@@ -163,7 +163,7 @@ public class MutableDataScanner {
 
      - returns: true if it contains a delimiter in buffer.
      */
-    public func hasNext(_ delimiter: Data) -> Bool {
+    open func hasNext(_ delimiter: Data) -> Bool {
         guard let _ = data.range(of: delimiter) else {
             return false
         }
@@ -179,7 +179,7 @@ public class MutableDataScanner {
 
      - returns: data to the next delimiter.
      */
-    public func next(_ delimiter: Data) -> Data? {
+    open func next(_ delimiter: Data) -> Data? {
         guard let range = data.range(of: delimiter) else {
             return nil
         }
@@ -194,7 +194,7 @@ public class MutableDataScanner {
 
      - returns: true if the buffer there is a line break
      */
-    public func hasNextLine() -> Bool {
+    open func hasNextLine() -> Bool {
         return data.range(of: Static.dataLF) != nil
     }
 
@@ -205,7 +205,7 @@ public class MutableDataScanner {
 
      - returns: the next line
      */
-    public func nextLine() -> Data? {
+    open func nextLine() -> Data? {
         guard let range = data.range(of: Static.dataLF) else {
             return nil
         }
