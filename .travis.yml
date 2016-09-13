@@ -1,7 +1,7 @@
 language: objective-c
 env:
     matrix:
-    - XCODE_SCHEME="MutableDataScanner iOS Tests" XCODE_SDK=iphonesimulator
-    - XCODE_SCHEME="MutableDataScanner Mac Tests" XCODE_SDK=macosx
-script: xcodebuild -project MutableDataScanner.xcodeproj -scheme "$XCODE_SCHEME" -sdk $XCODE_SDK -configuration Release build test
+    - XCODE_SCHEME="MutableDataScanner iOS Tests" XCODE_DESTINATION="platform=iOS Simulator,name=iPhone 6"
+    - XCODE_SCHEME="MutableDataScanner Mac Tests" XCODE_DESTINATION="platform=OS X,arch=x86_64"
+script: xcodebuild -project MutableDataScanner.xcodeproj -scheme "$XCODE_SCHEME" -destination "$XCODE_DESTINATION" -configuration Release build test
 osx_image: xcode8
