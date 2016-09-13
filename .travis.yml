@@ -3,8 +3,5 @@ env:
     matrix:
     - XCODE_SCHEME="MutableDataScanner iOS Tests" XCODE_SDK=iphonesimulator
     - XCODE_SCHEME="MutableDataScanner Mac Tests" XCODE_SDK=macosx
-before_install:
-    - brew update
-    - brew uninstall xctool && brew install --HEAD xctool
-script: xctool -project MutableDataScanner.xcodeproj -scheme "$XCODE_SCHEME" -sdk $XCODE_SDK -configuration Release build test
+script: xcodebuild -project MutableDataScanner.xcodeproj -scheme "$XCODE_SCHEME" -sdk $XCODE_SDK -configuration Release build test
 osx_image: xcode8
