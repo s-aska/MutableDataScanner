@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "MutableDataScanner"
-  s.version          = "1.0.7"
+  s.version          = "1.1.0"
   s.summary          = "A simple text scanner which can parse NSMutableData using delimiter."
   s.description      = <<-DESC
                          A simple text scanner which can parse NSMutableData using delimiter.
